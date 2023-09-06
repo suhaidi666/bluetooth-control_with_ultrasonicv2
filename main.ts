@@ -138,6 +138,9 @@ function HorseLED () {
 function TrackingMode () {
     if (Tinybit.Line_Sensor(Tinybit.enPos.LeftState, Tinybit.enLineState.White) && Tinybit.Line_Sensor(Tinybit.enPos.RightState, Tinybit.enLineState.White)) {
         Tinybit.CarCtrlSpeed(Tinybit.CarState.Car_Run, 70)
+        Tinybit.RGB_Car_Big(Tinybit.enColor.White)
+        Tinybit.RGB_Car_Program().showColor(neopixel.colors(NeoPixelColors.Red))
+        Tinybit.RGB_Car_Program().show()
         basic.showLeds(`
             . . # . .
             . . # . .
@@ -172,6 +175,9 @@ function TrackingMode () {
             . # # # .
             # # # # #
             `)
+        Tinybit.RGB_Car_Big(Tinybit.enColor.OFF)
+        Tinybit.RGB_Car_Program().showColor(neopixel.colors(NeoPixelColors.Black))
+        Tinybit.RGB_Car_Program().clear()
     }
 }
 function WaterLED () {
